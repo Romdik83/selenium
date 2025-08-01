@@ -27,7 +27,7 @@ public class DebitCardTest {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--no-sandbox");
-        options.addArguments("--headless");
+        //options.addArguments("--headless");
         driver = new ChromeDriver(options);
         driver.get("http://localhost:9999");
     }
@@ -42,6 +42,18 @@ public class DebitCardTest {
     void fillingOutTheForm() {
         WebElement from = driver.findElement(By.cssSelector("form"));
         from.findElement(By.cssSelector("[data-test-id='name'] input")).sendKeys("Новикова Оксана");
+        from.findElement(By.cssSelector("[data-test-id='phone'] input")).sendKeys("+79150000000");
+        from.findElement(By.cssSelector("[data-test-id='agreement']")).click();
+        from.findElement(By.cssSelector("button")).click();
+        WebElement result = driver.findElement(By.cssSelector("[data-test-id='order-success']"));
+        assertTrue(result.isDisplayed());
+        assertEquals("Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.", result.getText().trim());
+    }
+
+    @Test
+    void f1() {
+        WebElement from = driver.findElement(By.cssSelector("form"));
+        from.findElement(By.cssSelector("[data-test-id='name'] input")).sendKeys();
         from.findElement(By.cssSelector("[data-test-id='phone'] input")).sendKeys("+79150000000");
         from.findElement(By.cssSelector("[data-test-id='agreement']")).click();
         from.findElement(By.cssSelector("button")).click();
