@@ -49,18 +49,4 @@ public class DebitCardTest {
         assertTrue(result.isDisplayed());
         assertEquals("Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.", result.getText().trim());
     }
-
-    @Test
-    void f1() {
-        WebElement from = driver.findElement(By.cssSelector("form"));
-        from.findElement(By.cssSelector("[data-test-id='phone'] input")).sendKeys("+79150000000");
-        from.findElement(By.cssSelector("[data-test-id='agreement']")).click();
-        from.findElement(By.cssSelector("button")).click();
-        WebElement result = driver.findElement(By.cssSelector("[data-test-id='order-success']"));
-        assertTrue(result.isDisplayed());
-        assertEquals("Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.", result.getText().trim());
-
-    }
-
-
 }
