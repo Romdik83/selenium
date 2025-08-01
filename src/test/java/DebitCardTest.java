@@ -53,7 +53,6 @@ public class DebitCardTest {
     @Test
     void f1() {
         WebElement from = driver.findElement(By.cssSelector("form"));
-   //     from.findElement(By.cssSelector("[data-test-id='name'] input")).sendKeys();
         from.findElement(By.cssSelector("[data-test-id='phone'] input")).sendKeys("+79150000000");
         from.findElement(By.cssSelector("[data-test-id='agreement']")).click();
         from.findElement(By.cssSelector("button")).click();
